@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import { DataService } from '../services/data/data.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -9,11 +10,11 @@ import {environment} from '../../environments/environment';
 export class HomePage {
   MovieName = '';
   url = environment.modelUrl;
-  public recommentList: any = [{title: "Gordy"},{title: "The Black Cauldron"},{title: "A Close Shave"},{title: "City Slickers II: The Legend of Curly's Gold"},{title: "The Newton Boys"}]
-  constructor(private http: HttpClient) {}
+  public recommentList: any = [];
+  constructor(private http: HttpClient, private dataService: DataService) {}
   getRecommend() {
     if (this.MovieName !== '') {
-      this.http.get(`${this.url}?name=${this.MovieName}`).subscribe((response) => {
+      this.http.get(`${this.url}/${this.dataService.selectedType}?name=${this.MovieName}`).subscribe((response) => {
         console.log(response);
         this.recommentList = response;
         this.recommentList.forEach(element => {

@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  modelUrl: 'http://127.0.0.1:5000/movie'
+  modelUrl: 'http://127.0.0.1:5000/movie',
+  menuList: [
+    {
+      name: 'Based On Content of Movie',
+      value: 'content'
+    },
+    {
+      name: 'Based On Cast and crew and genre',
+      value: 'cast'
+    }
+]
 };
 
 /*
