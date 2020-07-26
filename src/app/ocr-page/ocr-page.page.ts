@@ -7,6 +7,9 @@ import {HttpClient} from '@angular/common/http';
 })
 export class OcrPagePage implements OnInit {
   fileObj: File;
+  show = false;
+  line = '';
+  sentiment = '';
   constructor(
     private http: HttpClient
   ) { }
@@ -22,6 +25,9 @@ export class OcrPagePage implements OnInit {
     const uploadData = new FormData();
     uploadData.append('file', this.fileObj);
     this.http.post('http://127.0.0.1:5000/getText', uploadData).subscribe((res: any) => {
+      this.show = true;
+      this.line = res.outputText;
+      this.sentiment = res.predSentiment;
       console.log(res);
     });
   }

@@ -1,11 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Select Photo</ion-title>
+    <ion-title>Select Photo and predict Sentiment</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
   <ion-item>
     <span slot="start">
       <ion-icon name='folder' class="iconStart"></ion-icon>
@@ -16,4 +15,12 @@
   <ion-item style="display: flex;align-items: center;justify-content: center;align-content: center;">
       <ion-button (click)="sendName()">Get Sentiment</ion-button>
   </ion-item>
+  <div style="margin-top: 20px" *ngIf="show">
+    <div style="font-size: 40px;text-align: center;">
+      Extracted Line - {{line}}
+    </div>
+    <div style="font-size: 40px;text-align: center;margin-top: 10px">
+      Sentiment - {{sentiment}}
+    </div>
+  </div>
 </ion-content>
