@@ -17,7 +17,7 @@ export class AppComponent {
     private route: Router
   ) {
     this.initializeApp();
-    this.route.navigate(['question']);
+    this.route.navigate(['ocr-page']);
   }
 
   initializeApp() {

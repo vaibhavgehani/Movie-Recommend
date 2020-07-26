@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'question',
     loadChildren: () => import('./question/question.module').then( m => m.QuestionPageModule)
   },
+  {
+    path: 'ocr-page',
+    loadChildren: () => import('./ocr-page/ocr-page.module').then( m => m.OcrPagePageModule)
+  },
 ];
 
 @NgModule({
